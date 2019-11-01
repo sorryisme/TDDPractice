@@ -15,4 +15,12 @@ public class Account {
 		return balance;
 	}
 
+    public void deposit(int money) {
+        this.balance += money;
+    }
+
+    public void withdraw(int money) {
+        this.balance -= money;
+    }
+
 }

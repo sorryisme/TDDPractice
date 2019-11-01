@@ -1,33 +1,24 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
 import main.Account;
-/*
- * 클래스 이름은 Account : O
- * 기능은 세가지
- * 잔고조회
- * - 10000원,1000원, 0원으로 계좌생성
- * - 잔고 조회 결과 일치
- * 입금
- * 출금
- * 금액은 원 단위로 (예 천원 =1000)
- * */
 
 public class AccountTest {
 	
-	@Test
+	private Account account;
+
+    @Test
 	public void testAccount() throws Exception {
-		Account account = new Account(10000);
+        setup();
 	}
 	
 	@Test
 	public void testGetBalanace() throws Exception{
 
-		Account account = new Account(10000);
+	    setup();
 		assertEquals(10000,account.getBalance());
 		
 //		if(account.getBalance() != 10000) {
@@ -47,5 +38,24 @@ public class AccountTest {
 //			fail();
 //		}
 		
+	}
+	
+	@Test
+	public void testDeposit() throws Exception {
+	    setup();
+	    account.deposit(1000);
+	    assertEquals(11000, account.getBalance());
+	}
+	
+	@Test
+	public void testWithdraw() throws Exception {
+	    setup();
+	    account.withdraw(1000);
+	    assertEquals(9000, account.getBalance());
+	}
+	
+	
+	private void setup() {
+	    account = new Account(10000);
 	}
 }
