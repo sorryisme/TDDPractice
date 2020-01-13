@@ -2,21 +2,19 @@ package main.tdd;
 
 public class Dollar extends Money {
 
-    private String currency;
+//    private String currency;
     
-    
-    public Dollar(int amount){
-        this.amount = amount;
-        this.currency = "USD";
+    public Dollar(int amount,String currency){
+        super(amount,currency);
     }
     
     public Money times(int multiplier) {
-        return new Dollar(amount * multiplier);
+        return new Money(amount * multiplier,currency);
     }
 
     @Override
     public String currency() {
-        return "USD";
+        return currency;
     }
     
     
