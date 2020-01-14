@@ -17,9 +17,5 @@ public class Franc extends Money{
     public String currency() {
         return currency;
     }
-
-//    public boolean equals(Object object) {
-//        Money money= (Money) object;
-//        return amount == money.amount;
-//    }
+    
 }
